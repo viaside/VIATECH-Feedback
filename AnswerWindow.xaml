@@ -1,0 +1,18 @@
+﻿<Window x:Class="VIATECH_Feedback.AnswerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VIATECH_Feedback"
+        mc:Ignorable="d"
+        Title="AnswerWindow" Height="274" Width="470" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid Margin="23,23,23,23">
+        <Button Content="Send Message" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <TextBox Name="Message_mail" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Height="76" Width="350" Margin="0,84,0,0"/>
+        <Label Content="Answer on message" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="User email:" HorizontalAlignment="Left" Margin="37,58,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="id" Content="" HorizontalAlignment="Left" Margin="110,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="User Name:" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="name" Content="" HorizontalAlignment="Left" Margin="110,32,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
