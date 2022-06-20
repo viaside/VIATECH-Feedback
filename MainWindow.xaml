@@ -31,7 +31,7 @@
         </ControlTemplate>
     </Window.Resources>
 
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="34,34,34,34">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="35,35,35,35">
         <Border Width="auto" Height="auto" BorderThickness="2"
                 CornerRadius="20,20,20,20">
             <Border.Background>
