@@ -13,23 +13,6 @@
             <GradientStop Color="#FF9CA2F9" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    
-    <Window.Resources>
-        <ControlTemplate x:Key="GridTemplate" TargetType="Button">
-            <Border Width="auto" Height="auto" BorderThickness="2"
-                CornerRadius="20,20,20,20">
-                <Border.Background>
-                    <LinearGradientBrush>
-                        <GradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#7FA2AFD6" Offset="0.0"></GradientStop>
-                            </GradientStopCollection>
-                        </GradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-        </ControlTemplate>
-    </Window.Resources>
 
     <Grid RenderTransformOrigin="0.5,0.5" Margin="35,35,35,35">
         <Border Width="auto" Height="auto" BorderThickness="2"
