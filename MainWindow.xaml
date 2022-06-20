@@ -5,21 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VIATECH_Feedback"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200" FontFamily="Arial Black" ResizeMode="NoResize" MaxWidth="1200" MaxHeight="700" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="46,46,46,46">
-        
-        <DataGrid Name="zxc" FontFamily="Arial Black" HorizontalAlignment="Right" VerticalAlignment="Center" Height="500" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Answer" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="24" Width="103"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        Title="VIATECH Feedback" Height="700" Width="1200" FontFamily="Arial" ResizeMode="NoResize" MaxWidth="1200" MaxHeight="700" 
+        HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" Icon="/overlay.png" AllowDrop="True">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFCACDF5" Offset="0"/>
+            <GradientStop Color="#FF9CA2F9" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Window.Resources>
+        <ControlTemplate x:Key="GridTemplate" TargetType="Button">
+            <Border Width="auto" Height="auto" BorderThickness="2"
+                CornerRadius="20,20,20,20">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientBrush.GradientStops>
+                            <GradientStopCollection>
+                                <GradientStop Color="#7FA2AFD6" Offset="0.0"></GradientStop>
+                            </GradientStopCollection>
+                        </GradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
 
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="34,34,34,34">
+        <Border Width="auto" Height="auto" BorderThickness="2"
+                CornerRadius="20,20,20,20">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="#7FA2AFD6" Offset="0.0"></GradientStop>
+                        </GradientStopCollection>
+                    </GradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
 
+            <Grid>
+                <DataGrid Name="zxc"  FontFamily="Bauhaus 93" Background="Transparent" BorderBrush="#00688CAF" Foreground="#FF7C8AFF" FontSize="14" 
+                          HorizontalGridLinesBrush="#FFA0D5F7" VerticalGridLinesBrush="#FFA0D5F7" HeadersVisibility="Column" 
+                          RowBackground="#00FF0000" AlternatingRowBackground="#00FF0303" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          MaxWidth="900" MaxHeight="900" MinWidth="750" VerticalContentAlignment="Center" AutoGenerateColumns="False">
+                    <DataGrid.Resources >
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}"  >
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#FF0033FF" />
+                            <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                            <Setter Property="Margin" Value="-1,-1,0,0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="auto"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="auto"/>
+                        <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="300">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTemplateColumn Width="auto" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Answer" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                            Height="100" Width="100" Foreground="#FF1300FF" Background="#00000000" 
+                                            FontSize="18" BorderBrush="Transparent" BorderThickness="2" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Update" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="100" Foreground="#FF1300FF" 
+                        Background="#00000000" BorderBrush="#FF768AFF" FontSize="18" Click="Button_Click_1" Margin="0,535,117,0" 
+                        FontFamily="Bauhaus 93" BorderThickness="2">
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

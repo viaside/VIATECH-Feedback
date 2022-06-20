@@ -54,6 +54,11 @@ namespace VIATECH_Feedback
             string UserEmail = dt.Rows[id]["Email"].ToString();
             answerWindow.LoadData(UserName, UserEmail);
         }
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+        }
+
     }
 }
