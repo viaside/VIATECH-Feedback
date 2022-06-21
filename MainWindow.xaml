@@ -29,7 +29,7 @@
 
             <Grid>
                 <DataGrid Name="zxc"  FontFamily="Bauhaus 93" Background="Transparent" BorderBrush="#00688CAF" Foreground="#FF7C8AFF" FontSize="14" 
-                          HorizontalGridLinesBrush="#FFA0D5F7" VerticalGridLinesBrush="#FFA0D5F7" HeadersVisibility="Column" 
+                          HorizontalGridLinesBrush="#FF0033FF" VerticalGridLinesBrush="#FF0033FF" HeadersVisibility="Column" 
                           RowBackground="#00FF0000" AlternatingRowBackground="#00FF0303" HorizontalAlignment="Center" VerticalAlignment="Center" 
                           MaxWidth="900" MaxHeight="900" MinWidth="750" VerticalContentAlignment="Center" AutoGenerateColumns="False">
                     <DataGrid.Resources >

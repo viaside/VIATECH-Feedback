@@ -23,7 +23,6 @@ namespace VIATECH_Feedback
     public partial class MainWindow : Window
     {
         private NpgsqlConnection npgSqlConnection = null;
-        private NpgsqlCommand npgSqlCommand = null;
 
         DataTable dt = new DataTable();
         DataSet ds = new DataSet();
@@ -50,9 +49,12 @@ namespace VIATECH_Feedback
             int id = zxc.SelectedIndex;
             AnswerWindow answerWindow = new AnswerWindow();
             answerWindow.Show();
+
+            string UserId = dt.Rows[id]["Id"].ToString();
             string UserName = dt.Rows[id]["Name"].ToString();
             string UserEmail = dt.Rows[id]["Email"].ToString();
-            answerWindow.LoadData(UserName, UserEmail);
+
+            answerWindow.LoadData(UserId, UserName, UserEmail);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

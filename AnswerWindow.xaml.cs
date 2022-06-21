@@ -27,28 +27,36 @@ namespace VIATECH_Feedback
     /// </summary>
     public partial class AnswerWindow : Window
     {
+        private NpgsqlConnection npgSqlConnection = null;
+        private NpgsqlCommand npgSqlCommand = null;
+
         private string User_Name;
         private string Send_Message;
         private string User_EMail;
+        private string User_Id;
 
         public AnswerWindow()
         {
             InitializeComponent();
+            npgSqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;Database=VIAtech;User Id=postgres;Password=zxc;");
         }
 
-        public void LoadData(string us_name, string us_email)
+        public void LoadData(string us_id,string us_name, string us_email)
         {
+            User_Id = us_id;
             User_Name = us_name;
             User_EMail = us_email;
+
             id.Content = User_EMail;
             name.Content = User_Name;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Delete_Message();
             this.Close();
             Send_Message = Message_mail.Text;
-            MessageBox.Show($"Name - {User_Name} ,Email - {User_EMail}, Message - {Send_Message}");
+            MessageBox.Show($"{User_Id} Email - {User_EMail}, Message - {Send_Message}");
             Send_Email();
         }
 
@@ -72,6 +80,17 @@ namespace VIATECH_Feedback
             smtp.Credentials = new NetworkCredential("viaside15yo@yandex.ru", "zxxVanek1");
             smtp.EnableSsl = true;
             smtp.Send(m);
+        }
+
+        private void Delete_Message()
+        {
+            if (MessageBox.Show("Delete this string?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Question)
+                        == MessageBoxResult.Yes)
+            {
+                npgSqlConnection.Open();
+                npgSqlCommand = new NpgsqlCommand(@"DELETE FROM public.""Orders"" WHERE id = '" + User_Id + "'", npgSqlConnection);
+                npgSqlConnection.Close();
+            }
         }
     }
 }
